@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/index.css"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    
+</head>
+<body>
+    <ul>
+        <li><a href="/user/login">Log In</a></li>
+        <li><a href="/user/signup">Sign Up</a></li>
+        
+      </ul>
+    <form action="/user/login" method="POST">
+        <div class="login">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+            <input type="submit" value="Submit">
+        </div>
+
+
+    </form>
+
+    <br>
+    <a href="/user/signup">New Users Register here</a>
+</body>
+</html>

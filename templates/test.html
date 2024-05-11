@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    li {
+      float: left;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+        body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: burlywood;
+}
+
+div {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+    position: relative;
+  margin: 20px;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.card {
+  transition: transform 0.75s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.front, .back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.front {
+  border: 2px solid black;
+  background: yellow;
+}
+
+.front:hover {
+  bottom: 2px;
+  left: 2px;
+  box-shadow: 0px 0px 20px 1px #000;
+}
+
+.back {
+  border: 2px solid black;
+  background: yellow;
+  transform: rotateY(180deg);
+}
+
+.back:hover {
+  bottom: 2px;
+  right: 2px;
+  box-shadow: 0px 0px 20px 1px #000;
+}
+
+    </style>
+<script>
+    function flip(event){
+	var element = event.currentTarget;
+	if (element.className === "card") {
+    if(element.style.transform == "rotateY(180deg)") {
+      element.style.transform = "rotateY(0deg)";
+    }
+    else {
+      element.style.transform = "rotateY(180deg)";
+    }
+  }
+};
+</script>
+</head>
+<body>
+    <div>
+    <ul>
+        <li><a href="/user/dashboard">Dashboard</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li><a href="/user/logout">Log Out</a></li>
+        
+      </ul>
+
+    </div>
+    
+        <h1> {{deck_name}}</h1>
+        
+        
+    
+   
+    <div class="container">
+        <div class="card" onclick="flip(event)">
+          <div class="front">
+            <h1>{{card["front"]}}</h1>
+            
+          </div>
+          <div class="back">
+            <h1>{{card["back"]}}</h1>
+          </div>
+        </div>
+      </div>
+      <form action="/deck/review/{{deck_name}}" method="post">
+        <input type="text" style="display: none;" value="49" name="card_id">
+        <input type="radio" name="difficulty" value="easy" checked="">
+        <label>Easy</label>
+        <input type="radio" name="difficulty" value="medium">
+        <label>Medium</label>
+        <input type="radio" name="difficulty" value="hard">
+        <label>Hard</label>
+        <input style="background-color: lightgreen;" id="nextbutton" type="submit" value="Next">
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/add_deck.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Deck</title>
+</head>
+<body>
+    <ul>
+
+        <li><a href="/user/dashboard">Dashboard</a></li>
+        
+
+        <li><a href="/user/logout">Log Out</a></li>
+        
+      </ul>
+
+    <h1>Add Deck</h1>
+    <form action="/deck/add_deck" method="POST">
+        <label >Enter the name of deck:</label><br>
+        <input type="text" name="deck_name" required>
+        <br>
+        <label >Deck description:</label><br>
+        <input type="text" name="deck_description"><br><br>
+
+        <input class="button button1" type="submit" value="Submit">
+
+    </form>
+    
+</body>
+</html>

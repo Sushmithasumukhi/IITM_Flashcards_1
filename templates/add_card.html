@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style> ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: left;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }</style>
+    <link rel="stylesheet" href="/static/add_deck.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Card</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/user/dashboard">Dashboard</a></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    
+            <li><a href="/user/logout">Log Out</a></li>
+    
+            
+            
+          </ul>
+    </div>
+    <br>
+    
+    <form action="/card/{{deck_name}}/add_card" method="post">
+        <label>Front of Card:</label>
+        <input type="text" name="front" required >
+        <label >Back of Card:</label>
+        <input type="text" name="back" required>
+        <input class="button button1" type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../static/dashboard.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/user/dashboard">Dashboard</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li><a href="/user/logout">Log Out</a></li>
+        
+      </ul>
+      <h1>Welcome {{User}}</h1>
+    
+
+    <br>
+    <br>
+
+    <table>
+        <tr>
+            <th>Sl.NO</th>
+            <th>Deck</th>
+            <th>Description</th>
+            <th>Last review Score</th>
+            <th>Average review Score</th>
+            <th>Last review time</th>
+            <th>Actions</th>
+
+        </tr>
+            
+
+        {% for deck in deck_data%}
+        <tr>
+            
+            <td>{{loop.index}}</td>
+            <td>{{deck["deck_name"]}}</td>
+            <td>{{deck["deck_description"]}}</td>
+            <td>{{deck["score"]}}</td>
+            <td>{{deck["avg_score"]}}</td>
+            <td>{{deck["time"]}}</td>
+            <td><a href="/deck/edit/{{deck["deck_name"]}} ">Edit Deck</a>/<a href="/deck/delete/{{deck["deck_name"]}}">Delete deck</a>/<a href="/deck/review/{{deck["deck_name"]}} ">Review Deck</a></td>
+            
+
+
+
+            
+        </tr>
+        {% endfor %}
+        
+        
+    </table>
+    
+        
+        <a class="button button1" href="/deck/add_deck"> ADD Deck</a>
+        
+        
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/add_deck.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Card</title>
+    
+      </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/user/dashboard">Dashboard</a></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    
+            <li><a href="/user/logout">Log Out</a></li>
+    
+            
+            
+          </ul>
+    </div>
+    <br>
+    <form action="/card/edit/{{deck_name}}/{{card["card_id"]}}" method="POST">
+        <label>Front of Card:</label>
+        <input type="text" name="front" value="{{card["front"]}}">
+        <label >Back of Card:</label>
+        <input type="text" name="back" value="{{card["back"]}}">
+        <input type="submit" class="button button1" value="Submit">
+
+    </form>
+
+</body>
+</html>

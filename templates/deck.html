@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/deck.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/user/dashboard">Dashboard</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li><a href="/user/logout">Log Out</a></li>
+        
+      </ul>
+
+    <h1>User:- {{User}}</h1>
+
+    
+    <div><h2>Name of the Deck: {{deck_name}}</h2></div>
+    <div><h2>Description of deck:{{deck_description}}</h2></div>
+    
+    <br>
+    
+    <br>
+    <a class="button button1" href="/deck/update/{{deck_name}}">Click here to update deck details</a>
+    <br>
+    <br>
+
+    <table>
+        <tr>
+            <th>Sl.NO</th>
+            <th>card</th>
+            <th>Last review Score</th>
+            <th>Last review time</th>
+            <th>Actions</th>
+
+        </tr>
+            
+
+        {% for card in card_data%}
+        <tr>
+            
+            <td>{{loop.index}}</td>
+            <td>{{card["front"]}}</td>
+            <td>{{card["score"]}}</td>
+            <td>{{card[ "time"]}}</td>
+            <td><a href="/card/edit/{{deck_name}}/{{card["card_id"]}} ">Edit card</a>/<a href="/card/delete/{{deck_name}}/{{card["card_id"]}}">Delete card</a></td>
+            
+
+
+
+            
+        </tr>
+        {% endfor %}
+        
+        
+            
+
+        
+    </table>
+    <a class="button button1"href="/card/{{deck_name}}/add_card">+Add card</a>    
+</body>
+</html>
